@@ -18,12 +18,13 @@ function getTotalNumberOfBorrows(account, books) {
   return total;
 }
 
-
+/*returns an array of book objects, including author information, 
+that represents all books _currently checked out_ by the given account*/
 function getBooksPossessedByAccount(account, books, authors) {
   let result = [];
     let borrowMatch = [];
-  //used forEach method instead of for loop
-  //"item" is the element in the forEach
+/*used forEach method instead of for loop, need to loop through books 
+and nested author object*/
   books.forEach((item) => {
 const borrowed = item.borrows;
   const book = {

@@ -7,17 +7,16 @@ function findBookById(books, id) {
 }
 
 function partitionBooksByBorrowedStatus(books) {
+//The .filter() method will look through the books array and compile a new array that meets our condition.
   let booksReturned = books.filter(book => book.borrows.every(borrow => borrow.returned === true));
-  /*The .filter() method will look through the books array and compile a new array that meets our condition.
- let booksReturned = books.filter((book) =>
-  book.borrows.every((borrow) => borrow.returned === true)
- );
- /*The .filter() method will look through the books array and compile a new array that meets our condition.
+
+  /*The filter method will look through the books array and compile a new array that meets our condition.
   Within the filter method we will use a helper function with the every method that will check if our condition
   is true within the borrow array.  If it is true */
   let booksBorrowed = books.filter(book => book.borrows.some(borrow => borrow.returned === false));
- /*The .filter() method will look through the books array and compile a new array that meets our condition.
-  Within the filter method we will use a helper function with the .some() method that will check if our condition
+ 
+  /*The filter method will look through the books array and compile a new array that meets our condition.
+  Within the filter method we will use a helper function with the some method that will check if our condition
   is true within the borrow array.  If it is true */
   let finalArray = [[...booksBorrowed], [...booksReturned]];
   return finalArray;
